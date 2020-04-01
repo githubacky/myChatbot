@@ -1,0 +1,14 @@
+こんにちは,こんにちは
+おはよう,おはようございます
+こんばんは,こんばんは
+ありがとう,どういたしまして
+さようなら,またね！
+演奏会教えて,Crawling 演奏会
+株価教えて,Crawling 株価
+ぬるぽ,がっ！
+hello,Hi!
+good morning,good morning!
+good afternoon,good afternoon!
+good evening,good evening!
+thank you,you are welcome!
+bye,see you!
