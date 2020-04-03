@@ -4,7 +4,7 @@ import requests
 import lxml.html
 import sqlite3
 
-def main():
+def main_concert():
 	url = 'https://i-amabile.com/'
 	html = fetch(url)
 	books = scrape(html, url)
@@ -52,7 +52,7 @@ def save_sqlite3(file_path: str, books: List[dict]):
 	conn.commit()
 	c.execute('SELECT * FROM concerts')
 	for row in c.fetchall():
-		print(row)
+		print(row[1])
 	conn.close()
 
 if __name__ == '__main__':
