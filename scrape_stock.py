@@ -1,6 +1,7 @@
 from typing import List
 import requests
 import lxml.html
+from bs4 import BeautifulSoup
 
 def main_stock(stcnum):
 	url = 'https://kabutan.jp/stock/?code=' + stcnum
@@ -21,14 +22,6 @@ def scrape(html: str, base_url: str) -> List[dict]:
 	err1 = html.cssselect(err1sel)
 	flag = err1[0].text_content()[0]
 
-	# 上場廃止の場合
-	err2sel0 = '#stockinfo_i2 > dl:nth-child(1) > dd'
-	err2sel1 = '#stockinfo_i1 > div.si_i1_1 > span'
-	err20 = html.cssselect(err2sel0)
-	err21 = html.cssselect(err2sel1)
-	flag20 = err20[0].text_content()
-	flag21 = err21[0].text_content()
-
 	if flag == "(":
 		print('指定した銘柄は存在しません。')
 
@@ -42,7 +35,18 @@ def scrape(html: str, base_url: str) -> List[dict]:
 		stcnm = stnm[0].text_content().replace(stcnum, '')
 
 		# 上場廃止の場合
-		if flag20 == "－" and flag21 == "":
+		err2sel0 = '#stockinfo_i2 > dl:nth-child(1) > dd'
+		err2sel1 = '#stockinfo_i1 > div.si_i1_1 > span'
+		err20 = html.cssselect(err2sel0)
+		err21 = html.cssselect(err2sel1)
+		flag20 = err20[0].text_content()
+		if err21 == []:
+			flag21 = "None"
+		else:
+			flag21 = err21[0].text_content()
+
+		# 上場廃止の場合
+		if flag20 == "－" and flag21 == "None":
 			print('{0}({1})は上場廃止となりました。'.format(stcnm, stcnum))
 
 		else:
