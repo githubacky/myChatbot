@@ -3,13 +3,8 @@
 こんばんは,こんばんは
 ありがとう,どういたしまして
 さようなら,またね！
-<<<<<<< HEAD
 演奏会,Crawling 演奏会
 株価,Crawling 株価
-=======
-演奏会教えて,Crawling 演奏会
-株価教えて,Crawling 株価
->>>>>>> 90d039d46d6c8f867ec66ff20a51fd0a93ae5a52
 ぬるぽ,がっ！
 hello,Hi!
 good morning,good morning!
