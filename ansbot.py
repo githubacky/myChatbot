@@ -32,6 +32,7 @@ while True:
 		else:
 			ans = "もう一度お願いします(>_<)"
 
+	print(command)
 	print(ans)
 
 	#---- bot終了処理
